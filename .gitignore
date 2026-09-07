@@ -15,5 +15,8 @@ node_modules/
 .vscode/
 .idea/
 
+# local tooling — not part of the website
+.claude/
+
 # logs
 npm-debug.log*
