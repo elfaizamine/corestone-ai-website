@@ -1,0 +1,91 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Section from '../components/Section.astro';
+import Stat from '../components/Stat.astro';
+import DemoPlaceholder from '../components/DemoPlaceholder.astro';
+import CtaBand from '../components/CtaBand.astro';
+
+const description =
+  'Case study: how a homebuilder stopped chasing status updates by phone. An AI voice agent calls field workers, asks about progress and delays, and feeds answers into the live project schedule in real time.';
+---
+
+<BaseLayout title="Case study — how a homebuilder stopped chasing status updates" description={description} path="/case-study">
+  <!-- PAGE HERO -->
+  <div class="page-hero">
+    <div class="container">
+      <div class="page-hero__inner reveal">
+        <p class="eyebrow">Case study</p>
+        <h1>How a homebuilder stopped chasing status updates by phone</h1>
+      </div>
+    </div>
+  </div>
+
+  <!-- THE STORY -->
+  <Section tone="tint" aria-label="The story">
+    <div class="split">
+      <div class="split__label">The situation</div>
+      <div class="split__body">
+        <p>
+          A construction firm’s manager was spending hours every week on the phone with field
+          workers, tracking down updates on where each project stood and why things were running
+          behind. It was slow, it was manual, and the information was always a step out of date by the
+          time it was gathered.
+        </p>
+      </div>
+    </div>
+
+    <div class="split">
+      <div class="split__label">What we built</div>
+      <div class="split__body">
+        <p>
+          An AI voice agent that calls field workers directly, asks about progress and the reasons
+          behind any delays, and feeds their answers straight back into the project’s live schedule —
+          automatically, in real time. The manager stopped being a human switchboard, and the project
+          data started keeping itself current.
+        </p>
+      </div>
+    </div>
+
+    <div class="split">
+      <div class="split__label">The result</div>
+      <div class="split__body">
+        <p>
+          The first working version was deployed in under five weeks. Follow-up that used to eat the
+          manager’s week now happens on its own, project tracking is more reliable because the
+          information flows in continuously, and the team’s communication runs without someone having
+          to chase it.
+        </p>
+      </div>
+    </div>
+  </Section>
+
+  <!-- RESULT STATS -->
+  <Section tone="white" aria-labelledby="result-stats-title">
+    <p class="eyebrow" id="result-stats-title">In numbers</p>
+    <div class="stats" style="margin-top: var(--space-7)">
+      <Stat value="5" unit="weeks" label="From first conversation to the first working version in production." />
+      <Stat value="Real-time" word label="Field updates land in the live project schedule as each call ends." />
+      <Stat
+        value="Hands-off"
+        word
+        label="Follow-up that used to take the manager a week now runs without anyone chasing it."
+      />
+    </div>
+  </Section>
+
+  <!-- DEMO PLACEHOLDER -->
+  <Section tone="tint" aria-labelledby="demo-title">
+    <p class="eyebrow" id="demo-title">Demo</p>
+    <h2 style="max-width: 20ch; margin-top: var(--space-5)">Hear the agent on a real status call</h2>
+    <div class="hero__demo" style="margin-top: var(--space-6)">
+      <DemoPlaceholder note="A short recording of the agent calling a field worker for a progress update. Coming soon." />
+    </div>
+  </Section>
+
+  <CtaBand
+    tone="white"
+    eyebrow="Get started"
+    heading="Have a process like this?"
+    text="Book a 20-minute call and tell me about the repetitive calls eating your team’s time. If it’s a fit, I’ll show you exactly how a voice agent would handle it."
+  />
+</BaseLayout>

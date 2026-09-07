@@ -1,0 +1,103 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Section from '../components/Section.astro';
+import Stat from '../components/Stat.astro';
+import CtaBand from '../components/CtaBand.astro';
+
+const description =
+  'Over eight years building AI and machine-learning systems across finance, media, telecom, and construction — now focused on one thing: voice AI agents that take the repetitive operational calls off your team’s plate.';
+
+const principles = [
+  {
+    label: 'Built personally',
+    body: 'Every project is designed, built, and delivered by one person — not scoped by one team and handed to another.',
+  },
+  {
+    label: 'Wired into your systems',
+    body: 'The agent connects to the tools you already run — spreadsheets, schedules, CRMs — so nothing new lands on your team.',
+  },
+  {
+    label: 'One outcome',
+    body: 'The whole engagement is measured one way: hours your team stops spending on the phone.',
+  },
+];
+---
+
+<BaseLayout title="About" description={description} path="/about">
+  <!-- PAGE HERO -->
+  <div class="page-hero">
+    <div class="container">
+      <div class="page-hero__inner reveal">
+        <p class="eyebrow">About</p>
+        <h1>One focus: giving your team their time back</h1>
+      </div>
+    </div>
+  </div>
+
+  <!-- BIO -->
+  <Section tone="tint" aria-labelledby="bio-title">
+    <p class="eyebrow" id="bio-title">Background</p>
+
+    <div class="split" style="margin-top: var(--space-8)">
+      <div class="split__label">In short</div>
+      <div class="split__body">
+        <p class="lead">
+          I’ve spent over eight years building AI and machine-learning systems for companies across
+          finance, media, telecom, and construction — including work with teams at Forbes and
+          Artefact.
+        </p>
+        <p>
+          I now focus on one thing: building voice AI agents that take the repetitive operational
+          calls off your team’s plate and keep your systems up to date automatically. Every project
+          is built and delivered personally, wired into the tools you already use, and focused on one
+          outcome — giving your team their time back.
+        </p>
+      </div>
+    </div>
+
+    <div class="split" style="margin-top: var(--space-8)">
+      <div class="split__label">Track record</div>
+      <div class="split__body">
+        <div class="stats stats--2">
+          <Stat
+            value="8"
+            unit="years+"
+            label="Building AI and machine-learning systems across finance, media, telecom, and construction."
+          />
+          <Stat
+            value="Personally"
+            word
+            label="Every project built and delivered by one person — not handed to a team."
+          />
+        </div>
+      </div>
+    </div>
+  </Section>
+
+  <!-- HOW EVERY PROJECT WORKS -->
+  <Section tone="white" aria-labelledby="principles-title">
+    <p class="eyebrow">How every project works</p>
+    <h2 id="principles-title" style="max-width: 16ch; margin-top: var(--space-5)">
+      Three things stay true on every engagement
+    </h2>
+    <div style="margin-top: var(--space-8)">
+      {
+        principles.map((p) => (
+          <div class="split">
+            <div class="split__label">{p.label}</div>
+            <div class="split__body">
+              <p>{p.body}</p>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </Section>
+
+  <CtaBand
+    tone="tint"
+    eyebrow="Get started"
+    heading="Tell me about your calls."
+    text="Book a 20-minute call and tell me about the repetitive calls eating your team’s time. If it’s a fit, I’ll show you exactly how a voice agent would handle it."
+  />
+</BaseLayout>

@@ -1,0 +1,19 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { NAV } from '../consts';
+---
+
+<BaseLayout title="Page not found" description="That page doesn’t exist." path="/404" noindex>
+  <div class="page-hero">
+    <div class="container">
+      <div class="page-hero__inner reveal">
+        <p class="eyebrow">404</p>
+        <h1>That page doesn’t exist.</h1>
+        <p class="lead">The link may be old or mistyped. Here’s the way back:</p>
+        <ul class="marker-list" style="margin-top: var(--space-3)">
+          {NAV.map((item) => <li><a class="link" href={item.href}>{item.label}</a></li>)}
+        </ul>
+      </div>
+    </div>
+  </div>
+</BaseLayout>

@@ -1,0 +1,88 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Section from '../components/Section.astro';
+import { CALENDLY_URL, CTA_LABEL, CONTACT_EMAIL } from '../consts';
+
+const description =
+  'Book a 20-minute call and tell me about the repetitive calls eating your team’s time. If it’s a fit, I’ll show you exactly how a voice agent would handle it.';
+---
+
+<BaseLayout title="Contact" description={description} path="/contact">
+  <!-- PAGE HERO -->
+  <div class="page-hero">
+    <div class="container">
+      <div class="page-hero__inner reveal">
+        <p class="eyebrow">Contact</p>
+        <h1>Let’s find the calls worth automating.</h1>
+        <p class="lead">
+          Book a 20-minute call and tell me about the repetitive calls eating your team’s time. If
+          it’s a fit, I’ll show you exactly how a voice agent would handle it.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- CONTACT -->
+  <Section tone="tint" aria-labelledby="contact-title">
+    <p class="eyebrow" id="contact-title">Get in touch</p>
+
+    <div class="contact-grid" style="margin-top: var(--space-7)">
+      <aside class="contact-aside">
+        <h2 style="max-width: 16ch">Book a call, or send a note</h2>
+        <p style="margin-top: var(--space-4); color: var(--color-muted); max-width: 34ch">
+          The fastest way to start is a short call. Prefer to write first? Use the form and I’ll get
+          back to you.
+        </p>
+        <div class="actions" style="margin-top: var(--space-6)">
+          <a class="btn btn--lg" href={CALENDLY_URL} target="_blank" rel="noopener">{CTA_LABEL}</a>
+        </div>
+        <p class="contact-aside__email">
+          <a class="link" href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>
+        </p>
+      </aside>
+
+      <div>
+        <form
+          class="form"
+          name="contact"
+          method="POST"
+          action="/thank-you"
+          data-netlify="true"
+          data-netlify-honeypot="bot-field"
+        >
+          <input type="hidden" name="form-name" value="contact" />
+          <p class="field-hidden" aria-hidden="true">
+            <label>Don’t fill this out if you’re human: <input name="bot-field" tabindex="-1" autocomplete="off" /></label>
+          </p>
+
+          <div class="field">
+            <label for="name">Name <span class="req" aria-hidden="true">*</span></label>
+            <input id="name" name="name" type="text" autocomplete="name" required />
+          </div>
+
+          <div class="field">
+            <label for="email">Work email <span class="req" aria-hidden="true">*</span></label>
+            <input id="email" name="email" type="email" autocomplete="email" required />
+          </div>
+
+          <div class="field">
+            <label for="company">Company</label>
+            <input id="company" name="company" type="text" autocomplete="organization" />
+          </div>
+
+          <div class="field">
+            <label for="message">What calls are eating your team’s time? <span class="req" aria-hidden="true">*</span></label>
+            <textarea id="message" name="message" required></textarea>
+            <span class="hint">A sentence or two is plenty — who gets called, how often, and what you’re trying to find out.</span>
+          </div>
+
+          <button class="btn btn--lg" type="submit">Send note</button>
+          <p class="form-note">
+            Required fields are marked <span class="req" aria-hidden="true">*</span>. This form is
+            handled by Netlify Forms once the site is deployed.
+          </p>
+        </form>
+      </div>
+    </div>
+  </Section>
+</BaseLayout>

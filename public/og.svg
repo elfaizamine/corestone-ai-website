@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-label="CoreStone AI">
+  <rect width="1200" height="630" fill="#FFFFFF"/>
+  <rect width="1200" height="630" fill="#F2F5F9"/>
+  <rect x="0" y="0" width="1200" height="8" fill="#1C3D6E"/>
+  <g transform="translate(90, 96)">
+    <rect width="56" height="56" rx="13" fill="#1C3D6E"/>
+    <text x="28" y="30" text-anchor="middle" dominant-baseline="central"
+      font-family="'Inter Tight','Segoe UI',Helvetica,Arial,sans-serif" font-size="24" font-weight="700" fill="#FFFFFF">CS</text>
+    <text x="76" y="30" dominant-baseline="central"
+      font-family="'Inter Tight','Segoe UI',Helvetica,Arial,sans-serif" font-size="26" font-weight="600" fill="#17191F" letter-spacing="-0.5">CoreStone AI</text>
+  </g>
+  <text x="90" y="300" font-family="'Inter Tight','Segoe UI',Helvetica,Arial,sans-serif" font-size="72" font-weight="600" fill="#17191F" letter-spacing="-2.5">
+    <tspan x="90" dy="0">Your team is drowning in</tspan>
+    <tspan x="90" dy="86">follow-up calls. Let an AI</tspan>
+    <tspan x="90" dy="86">agent make them instead.</tspan>
+  </text>
+  <text x="90" y="566" font-family="'Inter','Segoe UI',Helvetica,Arial,sans-serif" font-size="28" font-weight="400" fill="#5C6472">
+    Voice AI agents for routine operational phone calls &#8212; corestoneai.com
+  </text>
+</svg>

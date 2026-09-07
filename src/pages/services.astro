@@ -1,0 +1,116 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Section from '../components/Section.astro';
+import Stat from '../components/Stat.astro';
+import CtaBand from '../components/CtaBand.astro';
+
+const description =
+  'How CoreStone AI works: we map the call, build and tune the voice agent against your real systems, then it goes live and the calls handle themselves — first deployment in under five weeks.';
+
+const steps = [
+  {
+    title: 'We map the call.',
+    body: 'We learn exactly what information you need, who gets called, and where the answers should go. This is a conversation, not a spec document — usually a single working session.',
+  },
+  {
+    title: 'We build and tune the agent.',
+    body: 'We design the conversation, connect it to your systems, and refine it until it sounds natural and reliably gets the right information. You hear it and sign off before it ever calls a real person.',
+  },
+  {
+    title: 'It goes live and the calls handle themselves.',
+    body: 'The agent starts making calls on your schedule. Answers flow straight into your tools in real time. You get your team’s hours back.',
+  },
+];
+---
+
+<BaseLayout title="Services — how it works" description={description} path="/services">
+  <!-- PAGE HERO -->
+  <div class="page-hero">
+    <div class="container">
+      <div class="page-hero__inner reveal">
+        <p class="eyebrow">Services</p>
+        <h1>Voice AI agents that do the calls your team shouldn’t have to</h1>
+        <p class="lead">
+          Most operational work isn’t complicated — it’s just constant. Someone has to call, ask,
+          wait, follow up, and write it down. We automate that entire loop.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- WHAT OUR AGENTS HANDLE -->
+  <Section tone="tint" aria-labelledby="handle-title">
+    <p class="eyebrow">What our agents handle</p>
+    <h2 id="handle-title" style="max-width: 20ch; margin-top: var(--space-5)">
+      Any routine, repeatable call to collect or confirm information
+    </h2>
+    <div class="prose" style="margin-top: var(--space-6)">
+      <p>
+        Status updates, follow-ups, reminders, data gathering, simple check-ins. If your team spends
+        hours a week on a certain kind of call, it’s probably a candidate.
+      </p>
+    </div>
+    <ul class="marker-list" style="margin-top: var(--space-7)">
+      <li>Status updates from field workers and crews</li>
+      <li>Chasing suppliers for delivery and lead times</li>
+      <li>Follow-ups on missing or incomplete information</li>
+      <li>Appointment and schedule confirmations</li>
+      <li>Reminders and simple check-ins</li>
+      <li>Routine data gathering for your systems</li>
+    </ul>
+  </Section>
+
+  <!-- HOW IT WORKS -->
+  <Section tone="white" aria-labelledby="how-title">
+    <p class="eyebrow">How it works</p>
+    <h2 id="how-title" style="max-width: 20ch; margin-top: var(--space-5)">Three steps, one working session to start</h2>
+    <div class="steps" style="margin-top: var(--space-8)">
+      {
+        steps.map((step, i) => (
+          <div class="step">
+            <div class="step__n">{String(i + 1).padStart(2, '0')}</div>
+            <div>
+              <h3>{step.title}</h3>
+              <p class="step__body" style="margin-top: var(--space-3)">
+                {step.body}
+              </p>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </Section>
+
+  <!-- WHAT YOU GET -->
+  <Section tone="tint" aria-labelledby="get-title">
+    <p class="eyebrow">What you get</p>
+    <h2 id="get-title" style="max-width: 18ch; margin-top: var(--space-5)">
+      A working agent, wired into your actual systems
+    </h2>
+    <div class="prose" style="margin-top: var(--space-6)">
+      <p>
+        Not a prototype, not a slide deck. A voice agent that makes real calls and keeps your systems
+        current on its own.
+      </p>
+    </div>
+    <div class="stats stats--2" style="margin-top: var(--space-8)">
+      <Stat
+        value="5"
+        unit="weeks"
+        label="From first conversation to live for our first homebuilding client."
+      />
+      <Stat
+        value="Real-time"
+        word
+        label="Every answer logged into your tools the moment the call ends."
+      />
+    </div>
+  </Section>
+
+  <CtaBand
+    tone="white"
+    eyebrow="Get started"
+    heading="Let’s map your first call."
+    text="Book a 20-minute call and tell me about the repetitive calls eating your team’s time. If it’s a fit, I’ll show you exactly how a voice agent would handle it."
+  />
+</BaseLayout>

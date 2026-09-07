@@ -1,0 +1,94 @@
+---
+import { NAV, SITE_NAME, CALENDLY_URL, CTA_LABEL } from '../consts';
+
+const current = Astro.url.pathname.replace(/\/+$/, '') || '/';
+const isActive = (href: string) => {
+  const h = href.replace(/\/+$/, '') || '/';
+  return h === '/' ? current === '/' : current === h || current.startsWith(h + '/');
+};
+---
+
+<header class="site-header" data-header>
+  <div class="container site-header__inner">
+    <a class="wordmark" href="/" aria-label={`${SITE_NAME} — home`}>
+      <span class="wordmark__mark" aria-hidden="true">CS</span>
+      <span>{SITE_NAME}</span>
+    </a>
+
+    <div class="header-group">
+      <nav class="primary-nav" aria-label="Primary">
+        {
+          NAV.map((item) => (
+            <a href={item.href} aria-current={isActive(item.href) ? 'page' : undefined}>
+              {item.label}
+            </a>
+          ))
+        }
+      </nav>
+      <a class="btn nav-cta" href={CALENDLY_URL} target="_blank" rel="noopener">
+        {CTA_LABEL}
+      </a>
+    </div>
+
+    <button
+      class="nav-toggle"
+      type="button"
+      data-nav-toggle
+      aria-expanded="false"
+      aria-controls="mobile-nav"
+      aria-label="Menu"
+    >
+      <svg class="icon-open" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+      </svg>
+      <svg class="icon-close" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <path d="M5 5l14 14M19 5L5 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+      </svg>
+    </button>
+  </div>
+
+  <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile">
+    {
+      NAV.map((item) => (
+        <a href={item.href} aria-current={isActive(item.href) ? 'page' : undefined}>
+          {item.label}
+        </a>
+      ))
+    }
+    <a class="btn" href={CALENDLY_URL} target="_blank" rel="noopener">{CTA_LABEL}</a>
+  </nav>
+</header>
+
+<script>
+  const header = document.querySelector<HTMLElement>('[data-header]');
+  const toggle = document.querySelector<HTMLButtonElement>('[data-nav-toggle]');
+  const panel = document.getElementById('mobile-nav');
+
+  if (header && toggle && panel) {
+    const setOpen = (open: boolean) => {
+      header.toggleAttribute('data-open', open);
+      toggle.setAttribute('aria-expanded', String(open));
+    };
+
+    toggle.addEventListener('click', () => {
+      setOpen(!header.hasAttribute('data-open'));
+    });
+
+    panel.addEventListener('click', (event) => {
+      if ((event.target as HTMLElement).closest('a')) setOpen(false);
+    });
+
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && header.hasAttribute('data-open')) {
+        setOpen(false);
+        toggle.focus();
+      }
+    });
+
+    // Reset when resizing up to desktop
+    const desktop = window.matchMedia('(min-width: 56rem)');
+    desktop.addEventListener('change', (event) => {
+      if (event.matches) setOpen(false);
+    });
+  }
+</script>

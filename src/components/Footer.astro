@@ -1,0 +1,38 @@
+---
+import { NAV, SITE_NAME, SITE_TAGLINE, CONTACT_EMAIL, CALENDLY_URL, CTA_LABEL } from '../consts';
+const year = new Date().getFullYear();
+---
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="site-footer__grid">
+      <div class="footer-col">
+        <a class="wordmark" href="/" aria-label={`${SITE_NAME} — home`}>
+          <span class="wordmark__mark" aria-hidden="true">CS</span>
+          <span>{SITE_NAME}</span>
+        </a>
+        <p class="site-footer__intro">{SITE_TAGLINE}.</p>
+      </div>
+
+      <div class="footer-col">
+        <h2>Pages</h2>
+        <ul>
+          {NAV.map((item) => <li><a href={item.href}>{item.label}</a></li>)}
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h2>Get in touch</h2>
+        <ul>
+          <li><a href={CALENDLY_URL} target="_blank" rel="noopener">{CTA_LABEL}</a></li>
+          <li><a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span>© {year} {SITE_NAME}</span>
+      <span>corestoneai.com</span>
+    </div>
+  </div>
+</footer>

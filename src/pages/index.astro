@@ -1,0 +1,112 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Section from '../components/Section.astro';
+import Stat from '../components/Stat.astro';
+import DemoPlaceholder from '../components/DemoPlaceholder.astro';
+import CtaBand from '../components/CtaBand.astro';
+import { CALENDLY_URL, CTA_LABEL, SITE_NAME } from '../consts';
+
+const description =
+  'CoreStone AI builds voice AI agents that make your routine operational phone calls — collecting updates, chasing status, gathering information — and log the answers straight into the tools you already use.';
+---
+
+<BaseLayout title="Voice AI agents for operational phone calls" description={description} path="/">
+  <!-- HERO -->
+  <div class="hero">
+    <div class="container">
+      <div class="hero__inner reveal">
+        <p class="eyebrow">{SITE_NAME} — Voice AI agents</p>
+        <h1>Your team is drowning in follow-up calls. Let an AI agent make them instead.</h1>
+        <p class="lead">
+          Voice AI agents that handle your routine operational calls — collecting updates, chasing
+          status, gathering information — and put the answers straight into the systems you already
+          use. So your people stop playing phone tag and get back to real work.
+        </p>
+        <div class="actions">
+          <a class="btn btn--lg" href={CALENDLY_URL} target="_blank" rel="noopener">{CTA_LABEL}</a>
+          <a class="btn btn--ghost btn--lg" href="#demo">See it in action</a>
+        </div>
+      </div>
+      <div class="hero__media" id="demo">
+        <DemoPlaceholder note="A short recording of one of our agents on a real operational call. Coming soon." />
+      </div>
+    </div>
+  </div>
+
+  <!-- WHAT WE DO -->
+  <Section tone="tint" aria-labelledby="what-title">
+    <p class="eyebrow">What we do</p>
+    <h2 id="what-title" style="max-width: 18ch; margin-top: var(--space-5)">
+      Routine calls that start handling themselves
+    </h2>
+
+    <div style="margin-top: var(--space-8)">
+      <div class="split">
+        <div class="split__label">The problem</div>
+        <div class="split__body">
+          <p>
+            Every operations team has calls that eat hours and nobody wants to make. Chasing
+            suppliers for delivery times. Calling field workers for status. Following up on missing
+            information. It’s repetitive, it’s endless, and it pulls your best people away from work
+            that actually matters.
+          </p>
+        </div>
+      </div>
+
+      <div class="split">
+        <div class="split__label">What we build</div>
+        <div class="split__body">
+          <p>
+            We build AI voice agents that make those calls for you. They speak naturally, hold a real
+            back-and-forth, collect exactly the information you need, and feed it directly into your
+            existing tools — spreadsheets, schedules, CRMs. No new software for your team to learn.
+            The calls just start handling themselves.
+          </p>
+        </div>
+      </div>
+
+      <div class="split">
+        <div class="split__label">Why it works</div>
+        <div class="split__body">
+          <p>
+            This isn’t a chatbot bolted onto a phone line. Our agents have real conversations, adapt
+            to how people actually talk, and know how to get the answer they were sent to get — then
+            log it where you need it, automatically.
+          </p>
+        </div>
+      </div>
+    </div>
+  </Section>
+
+  <!-- STATS -->
+  <Section tone="white" aria-labelledby="proof-title">
+    <p class="eyebrow">Why operations teams bring us in</p>
+    <h2 id="proof-title" style="max-width: 16ch; margin-top: var(--space-5)">
+      Proof it works, and a low-risk way to start
+    </h2>
+    <div class="stats" style="margin-top: var(--space-8)">
+      <Stat
+        value="5"
+        unit="weeks"
+        label="Under five weeks from the first conversation to a working agent in production — our first homebuilding deployment."
+      />
+      <Stat
+        value="8"
+        unit="years+"
+        label="Building AI and machine-learning systems across finance, media, telecom, and construction."
+      />
+      <Stat
+        value="Real-time"
+        word
+        label="Answers flow straight into your schedules, spreadsheets, and CRMs as each call ends."
+      />
+    </div>
+  </Section>
+
+  <CtaBand
+    tone="tint"
+    eyebrow="Get started"
+    heading="See if your calls are a fit."
+    text="Book a 20-minute call and tell me about the repetitive calls eating your team’s time. If it’s a fit, I’ll show you exactly how a voice agent would handle it."
+  />
+</BaseLayout>

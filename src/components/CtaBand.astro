@@ -1,0 +1,29 @@
+---
+import { CALENDLY_URL, CTA_LABEL } from '../consts';
+
+interface Props {
+  eyebrow?: string;
+  heading: string;
+  text?: string;
+  tone?: 'white' | 'tint';
+}
+const {
+  eyebrow = 'Get started',
+  heading,
+  text = 'A short call, no slides. Tell me about the repetitive calls eating your team’s time and I’ll show you how a voice agent would handle them.',
+  tone = 'tint',
+} = Astro.props;
+---
+
+<section class:list={['section', 'cta-band', tone === 'tint' && 'section--tint']}>
+  <div class="container">
+    <div class="cta-band__inner">
+      <p class="eyebrow">{eyebrow}</p>
+      <h2>{heading}</h2>
+      <p class="lead">{text}</p>
+      <div class="actions">
+        <a class="btn btn--lg" href={CALENDLY_URL} target="_blank" rel="noopener">{CTA_LABEL}</a>
+      </div>
+    </div>
+  </div>
+</section>

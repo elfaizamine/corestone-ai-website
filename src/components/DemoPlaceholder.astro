@@ -1,0 +1,19 @@
+---
+interface Props {
+  note?: string;
+  label?: string;
+}
+const {
+  note = 'Drop the recording in here when it is ready.',
+  label = 'Demo video — coming soon',
+} = Astro.props;
+---
+
+<div class="demo" role="img" aria-label={label}>
+  <svg class="demo__icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+    <rect x="2.5" y="5" width="19" height="14" rx="2.5" stroke="currentColor" stroke-width="1.6" />
+    <path d="M10 9.5l4.5 2.5L10 14.5v-5z" fill="currentColor" />
+  </svg>
+  <span class="demo__tag">{label}</span>
+  <p class="demo__note">{note}</p>
+</div>
