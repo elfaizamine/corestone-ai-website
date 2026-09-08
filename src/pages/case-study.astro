@@ -63,12 +63,20 @@ const description =
   <Section tone="white" aria-labelledby="result-stats-title">
     <p class="eyebrow" id="result-stats-title">In numbers</p>
     <div class="stats" style="margin-top: var(--space-7)">
-      <Stat value="5" unit="weeks" label="From first conversation to the first working version in production." />
-      <Stat value="Real-time" word label="Field updates land in the live project schedule as each call ends." />
+      <Stat
+        value={'5 weeks'}
+        word
+        label="The time from our first conversation to a live agent in production."
+      />
+      <Stat
+        value="Real-time"
+        word
+        label="The schedule stays current without anyone opening it."
+      />
       <Stat
         value="Hands-off"
         word
-        label="Follow-up that used to take the manager a week now runs without anyone chasing it."
+        label="Nobody has to remember to make these calls anymore."
       />
     </div>
   </Section>
@@ -86,6 +94,6 @@ const description =
     tone="white"
     eyebrow="Get started"
     heading="Have a process like this?"
-    text="Book a 20-minute call and tell me about the repetitive calls eating your team’s time. If it’s a fit, I’ll show you exactly how a voice agent would handle it."
+    text="Book a 20-minute call and tell us about the repetitive calls eating your team’s time. If it’s a fit, we’ll show you exactly how a voice agent would handle it."
   />
 </BaseLayout>

@@ -1,10 +1,9 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Section from '../components/Section.astro';
-import Stat from '../components/Stat.astro';
 import DemoPlaceholder from '../components/DemoPlaceholder.astro';
 import CtaBand from '../components/CtaBand.astro';
-import { CALENDLY_URL, CTA_LABEL, SITE_NAME } from '../consts';
+import { CALENDLY_URL, CTA_LABEL } from '../consts';
 
 const description =
   'CoreStone AI builds voice AI agents that make your routine operational phone calls — collecting updates, chasing status, gathering information — and log the answers straight into the tools you already use.';
@@ -15,7 +14,7 @@ const description =
   <div class="hero">
     <div class="container">
       <div class="hero__inner reveal">
-        <p class="eyebrow">{SITE_NAME} — Voice AI agents</p>
+        <p class="eyebrow">Voice AI for operations teams</p>
         <h1>Your team is drowning in follow-up calls. Let an AI agent make them instead.</h1>
         <p class="lead">
           Voice AI agents that handle your routine operational calls — collecting updates, chasing
@@ -24,7 +23,7 @@ const description =
         </p>
         <div class="actions">
           <a class="btn btn--lg" href={CALENDLY_URL} target="_blank" rel="noopener">{CTA_LABEL}</a>
-          <a class="btn btn--ghost btn--lg" href="#demo">See it in action</a>
+          <a class="btn btn--ghost btn--lg" href="/#demo">See it in action</a>
         </div>
       </div>
       <div class="hero__media" id="demo">
@@ -57,10 +56,11 @@ const description =
         <div class="split__label">What we build</div>
         <div class="split__body">
           <p>
-            We build AI voice agents that make those calls for you. They speak naturally, hold a real
-            back-and-forth, collect exactly the information you need, and feed it directly into your
-            existing tools — spreadsheets, schedules, CRMs. No new software for your team to learn.
-            The calls just start handling themselves.
+            We build AI voice agents that make those calls for you. They pull what needs following up
+            from your system, speak naturally, hold a real back-and-forth, collect exactly the
+            information you need, and write it straight back into your existing tools — spreadsheets,
+            schedules, CRMs. You keep using the tools you already have — we adapt the agent to your
+            systems, not the other way around. The calls just start handling themselves.
           </p>
         </div>
       </div>
@@ -78,35 +78,115 @@ const description =
     </div>
   </Section>
 
-  <!-- STATS -->
-  <Section tone="white" aria-labelledby="proof-title">
+  <!-- HOW IT WORKS -->
+  <Section tone="white" aria-labelledby="loop-title">
+    <p class="eyebrow">How it works</p>
+    <h2 id="loop-title" style="max-width: 20ch; margin-top: var(--space-5)">Every call runs the same loop</h2>
+    <p class="lead" style="margin-top: var(--space-4); max-width: 40ch">
+      Out of your system, and back into it.
+    </p>
+
+    <figure
+      class="loop"
+      role="group"
+      aria-label="The agent pulls what needs chasing from your system, calls the right person, has the conversation, then logs the answer back into the same system."
+      style="margin-top: var(--space-8)"
+    >
+      <div class="loop__row">
+        <div class="loop__step">
+          <span class="loop__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="3" width="18" height="18" rx="2" /><path d="M3 9h18" /><path d="M3 15h18" /><path d="M9 3v18" />
+            </svg>
+          </span>
+          <span class="loop__label">Pulls what needs chasing</span>
+        </div>
+
+        <span class="loop__arrow" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M5 12h14" /><path d="m12 5 7 7-7 7" />
+          </svg>
+        </span>
+
+        <div class="loop__step">
+          <span class="loop__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M13.83 16.57a1 1 0 0 0 1.21-.3l.36-.47A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.47.35a1 1 0 0 0-.29 1.24 14 14 0 0 0 6.39 6.38Z" />
+            </svg>
+          </span>
+          <span class="loop__label">Calls the right person</span>
+        </div>
+
+        <span class="loop__arrow" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M5 12h14" /><path d="m12 5 7 7-7 7" />
+          </svg>
+        </span>
+
+        <div class="loop__step">
+          <span class="loop__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M14 9a2 2 0 0 1-2 2H6l-4 4V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2Z" />
+              <path d="M18 9h2a2 2 0 0 1 2 2v11l-4-4h-6a2 2 0 0 1-2-2v-1" />
+            </svg>
+          </span>
+          <span class="loop__label">Has the conversation</span>
+        </div>
+
+        <span class="loop__arrow" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M5 12h14" /><path d="m12 5 7 7-7 7" />
+          </svg>
+        </span>
+
+        <div class="loop__step">
+          <span class="loop__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="3" width="18" height="18" rx="2" /><path d="M3 9h18" /><path d="M3 15h18" /><path d="M9 3v18" />
+            </svg>
+          </span>
+          <span class="loop__label">Logs the answer back</span>
+        </div>
+      </div>
+    </figure>
+  </Section>
+
+  <!-- WHY TEAMS BRING US IN -->
+  <Section tone="tint" aria-labelledby="proof-title">
     <p class="eyebrow">Why operations teams bring us in</p>
     <h2 id="proof-title" style="max-width: 16ch; margin-top: var(--space-5)">
       Proof it works, and a low-risk way to start
     </h2>
-    <div class="stats" style="margin-top: var(--space-8)">
-      <Stat
-        value="5"
-        unit="weeks"
-        label="Under five weeks from the first conversation to a working agent in production — our first homebuilding deployment."
-      />
-      <Stat
-        value="8"
-        unit="years+"
-        label="Building AI and machine-learning systems across finance, media, telecom, and construction."
-      />
-      <Stat
-        value="Real-time"
-        word
-        label="Answers flow straight into your schedules, spreadsheets, and CRMs as each call ends."
-      />
+    <div class="reasons" style="margin-top: var(--space-8)">
+      <div class="reason">
+        <h3 class="reason__title">See it in action</h3>
+        <p class="reason__body">
+          A homebuilder’s manager was losing hours a week chasing field crews for status. An agent
+          does it now — the first version was live in under five weeks, and the follow-up runs on its
+          own.
+        </p>
+        <a class="link reason__link" href="/case-study">Read the case study →</a>
+      </div>
+      <div class="reason">
+        <h3 class="reason__title">Shipped in under five weeks, starting with one call type</h3>
+        <p class="reason__body">
+          Our first deployment went live in under five weeks. Engagements start with one focused call
+          type, not a company-wide rollout.
+        </p>
+      </div>
+      <div class="reason">
+        <h3 class="reason__title">Works with what you already have</h3>
+        <p class="reason__body">
+          No new software, no migration. The agent fits into the tools your team already uses.
+        </p>
+      </div>
     </div>
   </Section>
 
   <CtaBand
-    tone="tint"
+    tone="white"
     eyebrow="Get started"
     heading="See if your calls are a fit."
-    text="Book a 20-minute call and tell me about the repetitive calls eating your team’s time. If it’s a fit, I’ll show you exactly how a voice agent would handle it."
+    text="Book a 20-minute call and tell us about the repetitive calls eating your team’s time. If it’s a fit, we’ll show you exactly how a voice agent would handle it."
   />
 </BaseLayout>

@@ -1,11 +1,24 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Section from '../components/Section.astro';
-import Stat from '../components/Stat.astro';
 import CtaBand from '../components/CtaBand.astro';
 
 const description =
-  'Over eight years building AI and machine-learning systems across finance, media, telecom, and construction — now focused on one thing: voice AI agents that take the repetitive operational calls off your team’s plate.';
+  'CoreStone AI is a solo, founder-led practice. Behind it: eight years building production AI systems for companies including Forbes and Artefact, and recent voice-AI work for clients in construction, logistics, and finance.';
+
+// Prior companies, most relevant to CoreStone AI's work first.
+// `logo` points at a file in /public/logos/; companies without one show as text.
+// `h` is a per-logo pixel height, hand-tuned so each mark reads at a similar
+// optical weight (tight wordmarks smaller, icon+text marks a little taller).
+const companies: { name: string; logo?: string; h?: number }[] = [
+  { name: 'Legacy South Builders', logo: '/logos/legacy-south.svg', h: 26 },
+  { name: 'Ship Angel', logo: '/logos/ship-angel.svg', h: 28 },
+  { name: 'Artefact' },
+  { name: 'PUBT' },
+  { name: 'Forbes', logo: '/logos/forbes.svg', h: 19 },
+  { name: 'INWI', logo: '/logos/inwi.svg', h: 21 },
+  { name: 'Banque Centrale Populaire', logo: '/logos/bcp.svg', h: 22 },
+];
 
 const principles = [
   {
@@ -14,7 +27,7 @@ const principles = [
   },
   {
     label: 'Wired into your systems',
-    body: 'The agent connects to the tools you already run — spreadsheets, schedules, CRMs — so nothing new lands on your team.',
+    body: 'The agent connects to the tools you already run — a spreadsheet, a schedule, your CRM. You keep using the tools you already have — we adapt the agent to your systems, not the other way around.',
   },
   {
     label: 'One outcome',
@@ -43,39 +56,49 @@ const principles = [
       <div class="split__body">
         <p class="lead">
           I’ve spent over eight years building AI and machine-learning systems for companies across
-          finance, media, telecom, and construction — including work with teams at Forbes and
-          Artefact.
+          finance, media, telecom, and construction. CoreStone AI is what I do now: voice AI agents
+          that take the repetitive operational calls off your team’s plate and keep your systems up to
+          date automatically.
         </p>
         <p>
-          I now focus on one thing: building voice AI agents that take the repetitive operational
-          calls off your team’s plate and keep your systems up to date automatically. Every project
-          is built and delivered personally, wired into the tools you already use, and focused on one
-          outcome — giving your team their time back.
+          It’s a solo, founder-led practice. Every project is built and delivered personally, wired
+          into the tools you already use, and focused on one outcome — giving your team their time
+          back.
         </p>
-      </div>
-    </div>
-
-    <div class="split" style="margin-top: var(--space-8)">
-      <div class="split__label">Track record</div>
-      <div class="split__body">
-        <div class="stats stats--2">
-          <Stat
-            value="8"
-            unit="years+"
-            label="Building AI and machine-learning systems across finance, media, telecom, and construction."
-          />
-          <Stat
-            value="Personally"
-            word
-            label="Every project built and delivered by one person — not handed to a team."
-          />
-        </div>
       </div>
     </div>
   </Section>
 
+  <!-- TRACK RECORD -->
+  <Section tone="white" aria-labelledby="track-title">
+    <p class="eyebrow">Track record</p>
+    <h2 id="track-title" style="max-width: 20ch; margin-top: var(--space-5)">Before CoreStone AI</h2>
+    <div class="prose" style="margin-top: var(--space-6)">
+      <p>
+        Eight years building production AI systems inside other companies and as a consultant, across
+        construction, logistics, media, telecom, and finance. That includes the construction
+        voice-agent work behind the case study on this site, a customer-service agent at Artefact that
+        cut human handovers by 30%, shipping-operations agents that roughly halved a team’s manual
+        processing at Ship Angel, and predictive models that lifted personal-loan revenue by 27% at
+        Banque Centrale Populaire.
+      </p>
+    </div>
+
+    <div class="logo-wall" style="margin-top: var(--space-8)">
+      {
+        companies.map((c) =>
+          c.logo ? (
+            <img src={c.logo} alt={c.name} loading="lazy" style={`height:${c.h ?? 24}px`} />
+          ) : (
+            <span class="logo-wall__text">{c.name}</span>
+          )
+        )
+      }
+    </div>
+  </Section>
+
   <!-- HOW EVERY PROJECT WORKS -->
-  <Section tone="white" aria-labelledby="principles-title">
+  <Section tone="tint" aria-labelledby="principles-title">
     <p class="eyebrow">How every project works</p>
     <h2 id="principles-title" style="max-width: 16ch; margin-top: var(--space-5)">
       Three things stay true on every engagement
@@ -95,9 +118,9 @@ const principles = [
   </Section>
 
   <CtaBand
-    tone="tint"
+    tone="white"
     eyebrow="Get started"
-    heading="Tell me about your calls."
-    text="Book a 20-minute call and tell me about the repetitive calls eating your team’s time. If it’s a fit, I’ll show you exactly how a voice agent would handle it."
+    heading="Tell us about your calls."
+    text="Book a 20-minute call and tell us about the repetitive calls eating your team’s time. If it’s a fit, we’ll show you exactly how a voice agent would handle it."
   />
 </BaseLayout>

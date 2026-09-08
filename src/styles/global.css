@@ -406,26 +406,32 @@ video {
 
 .stat__num {
   font-family: var(--font-display);
+  color: var(--color-accent);
+}
+
+.stat__value {
+  display: block;
   font-size: var(--text-stat);
   font-weight: 600;
   letter-spacing: -0.038em;
   line-height: 0.95;
-  color: var(--color-accent);
 }
 
-.stat__num--word {
+.stat__num--word .stat__value {
   font-size: var(--text-stat-word);
   letter-spacing: -0.028em;
   line-height: 1.02;
 }
 
-.stat__num .unit {
-  display: inline-block;
-  font-size: 0.42em;
+.stat__unit {
+  display: block;
+  margin-top: 0.45rem;
+  font-family: var(--font-text);
+  font-size: 0.82rem;
   font-weight: 600;
-  letter-spacing: 0;
-  color: var(--color-accent);
-  margin-left: 0.34em;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--color-muted);
 }
 
 .stat__label {
@@ -434,6 +440,65 @@ video {
   font-size: 1rem;
   line-height: 1.55;
   max-width: 30ch;
+}
+
+/* =============================================================================
+   Reasons — short bolded statement + one supporting line, three across
+   ========================================================================== */
+
+.reasons {
+  display: grid;
+  gap: var(--space-7);
+}
+
+.reason {
+  min-width: 0;
+}
+
+.reason::before {
+  content: '';
+  display: block;
+  width: 28px;
+  height: 2px;
+  background: var(--color-accent);
+  margin-bottom: var(--space-4);
+}
+
+.reason__title {
+  font-family: var(--font-display);
+  font-size: clamp(1.15rem, 1.03rem + 0.5vw, 1.35rem);
+  font-weight: 600;
+  letter-spacing: -0.014em;
+  line-height: 1.28;
+  color: var(--color-ink);
+  max-width: 24ch;
+  text-wrap: balance;
+}
+
+.reason__body {
+  margin-top: var(--space-4);
+  color: var(--color-body);
+  font-size: 1rem;
+  line-height: 1.6;
+  max-width: 36ch;
+  overflow-wrap: break-word;
+}
+
+.reason__link {
+  display: inline-block;
+  margin-top: var(--space-4);
+}
+
+@media (min-width: 48rem) {
+  .reasons {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: var(--space-6);
+    align-items: start;
+  }
+  /* Reserve two lines so every supporting line starts on the same row. */
+  .reason__title {
+    min-height: 2.56em;
+  }
 }
 
 /* =============================================================================
@@ -507,6 +572,41 @@ video {
   background: var(--color-accent);
   flex: none;
   transform: translateY(-1px);
+}
+
+/* =============================================================================
+   Deliverables — a bold lead phrase + one explanatory clause, per item
+   ========================================================================== */
+
+.deliverables {
+  display: grid;
+  gap: var(--space-5);
+  max-width: 62ch;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.deliverables li {
+  display: flex;
+  gap: var(--space-4);
+  color: var(--color-body);
+  line-height: 1.65;
+}
+
+.deliverables li::before {
+  content: '';
+  flex: none;
+  width: 7px;
+  height: 7px;
+  margin-top: 0.62em;
+  border-radius: 50%;
+  background: var(--color-accent);
+}
+
+.deliverables strong {
+  color: var(--color-ink);
+  font-weight: 600;
 }
 
 /* =============================================================================
@@ -1042,4 +1142,180 @@ video {
 .cta-band .actions {
   margin-top: var(--space-2);
   justify-content: center;
+}
+
+/* =============================================================================
+   Callout — one emphasised line, not a card
+   ========================================================================== */
+
+.callout {
+  border-left: 3px solid var(--color-accent);
+  background: var(--color-accent-wash);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  padding: var(--space-4) var(--space-5);
+  max-width: 52ch;
+  font-size: var(--text-lead);
+  line-height: 1.5;
+  color: var(--color-ink);
+}
+
+/* =============================================================================
+   FAQ — plain question / answer blocks
+   ========================================================================== */
+
+.faq {
+  display: grid;
+  max-width: 68ch;
+}
+
+.faq__item {
+  padding-block: var(--space-6);
+  box-shadow: inset 0 1px 0 var(--color-line);
+}
+
+.faq__item:first-child {
+  padding-top: 0;
+  box-shadow: none;
+}
+
+.faq__q {
+  font-family: var(--font-text);
+  font-size: 1.1rem;
+  font-weight: 600;
+  line-height: 1.42;
+  letter-spacing: -0.004em;
+  color: var(--color-ink);
+}
+
+.faq__a {
+  margin-top: var(--space-3);
+  color: var(--color-body);
+  line-height: 1.7;
+  max-width: 64ch;
+}
+
+/* =============================================================================
+   Logo wall — prior companies, shown the way a business lists its work
+   ========================================================================== */
+
+.logo-wall {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-5) var(--space-7);
+}
+
+/* One tone, one height for every mark — reads as an "as seen at" row, not a
+   mix of brand colours. Text-only names are sized to match the marks. */
+.logo-wall img {
+  height: 24px; /* fallback — per-logo height set inline in about.astro */
+  width: auto;
+  filter: grayscale(1) brightness(0);
+  opacity: 0.5;
+}
+
+.logo-wall__text {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.5rem;
+  line-height: 1;
+  letter-spacing: -0.015em;
+  color: var(--color-ink);
+  opacity: 0.5;
+}
+
+/* =============================================================================
+   Loop diagram — four quiet steps. Steps 1 and 4 share an icon so the sequence
+   reads as starting and ending in the client's own system.
+   ========================================================================== */
+
+.loop {
+  max-width: 50rem;
+  margin-inline: auto;
+}
+
+.loop__row {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-3);
+}
+
+.loop__step {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+}
+
+.loop__icon {
+  display: grid;
+  place-items: center;
+  width: 46px;
+  height: 46px;
+  flex: none;
+  border-radius: 50%;
+  background: var(--color-accent);
+  color: #fff;
+}
+
+.loop__icon svg {
+  width: 20px;
+  height: 20px;
+}
+
+.loop__label {
+  font-size: 1.05rem;
+  font-weight: 500;
+  line-height: 1.35;
+  color: var(--color-ink);
+}
+
+.loop__arrow {
+  display: grid;
+  place-items: center;
+  flex: none;
+  margin-left: 13px;
+  color: var(--color-muted);
+  transform: rotate(90deg);
+}
+
+.loop__arrow svg {
+  width: 16px;
+  height: 16px;
+}
+
+@media (min-width: 48rem) {
+  .loop__row {
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: var(--space-3);
+  }
+  .loop__step {
+    flex-direction: column;
+    align-items: center;
+    width: 10rem;
+    gap: var(--space-4);
+    text-align: center;
+  }
+  .loop__icon {
+    width: 64px;
+    height: 64px;
+  }
+  .loop__icon svg {
+    width: 28px;
+    height: 28px;
+  }
+  .loop__label {
+    font-size: 1rem;
+  }
+  .loop__arrow {
+    margin-left: 0;
+    height: 64px;
+    transform: none;
+  }
+  .loop__arrow svg {
+    width: 24px;
+    height: 24px;
+  }
 }

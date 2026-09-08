@@ -6,8 +6,7 @@ export const SITE_TAGLINE = 'Voice AI agents for routine operational phone calls
 
 export const CONTACT_EMAIL = 'hello@corestoneai.com';
 
-// TODO: replace with your real Calendly link before launch.
-export const CALENDLY_URL = 'https://calendly.com/corestoneai/20min';
+export const CALENDLY_URL = 'https://calendly.com/ae-aminelfaiz/20-minute-intro-call';
 
 export const CTA_LABEL = 'Book a 20-minute call';
 

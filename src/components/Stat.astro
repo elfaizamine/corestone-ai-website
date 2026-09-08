@@ -1,8 +1,8 @@
 ---
 interface Props {
-  /** The headline figure, e.g. "5", "8", "Real-time" */
+  /** The headline figure, e.g. "5", "8+", "Real-time" */
   value: string;
-  /** Optional trailing unit, e.g. "weeks", "years+" */
+  /** Optional unit shown small on its own line under the value, e.g. "weeks", "years" */
   unit?: string;
   label: string;
   /** Render the value at word-scale rather than numeral-scale */
@@ -13,7 +13,8 @@ const { value, unit, label, word = false } = Astro.props;
 
 <div class="stat">
   <div class:list={['stat__num', word && 'stat__num--word']}>
-    {value}{unit && <span class="unit">{unit}</span>}
+    <span class="stat__value">{value}</span>
+    {unit && <span class="stat__unit">{unit}</span>}
   </div>
   <p class="stat__label">{label}</p>
 </div>

@@ -1,7 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Section from '../components/Section.astro';
-import Stat from '../components/Stat.astro';
 import CtaBand from '../components/CtaBand.astro';
 
 const description =
@@ -14,11 +13,42 @@ const steps = [
   },
   {
     title: 'We build and tune the agent.',
-    body: 'We design the conversation, connect it to your systems, and refine it until it sounds natural and reliably gets the right information. You hear it and sign off before it ever calls a real person.',
+    body: 'We design the conversation, connect it to your systems, and refine it until it sounds natural and reliably gets the right information.',
   },
   {
     title: 'It goes live and the calls handle themselves.',
     body: 'The agent starts making calls on your schedule. Answers flow straight into your tools in real time. You get your team’s hours back.',
+  },
+];
+
+const faqs = [
+  {
+    q: 'Do we need to already use Smartsheet, or a specific tool?',
+    a: 'No. We connect to whatever you already use to track this — a spreadsheet, Smartsheet, Monday, your CRM, or even just email or Slack. The agent adapts to your systems, not the other way around.',
+  },
+  {
+    q: 'Does this only work in English?',
+    a: 'No — the underlying voice technology supports multiple languages. We configure the agent for whichever language your team and the people you’re calling actually speak.',
+  },
+  {
+    q: 'What if we don’t have clean data or a process set up yet?',
+    a: 'Most clients don’t. Figuring out what to capture and where it should land is part of the first working session — you don’t need anything set up in advance.',
+  },
+  {
+    q: 'What happens if the agent can’t reach someone, or gets an unclear answer?',
+    a: 'It doesn’t guess. Unclear or incomplete calls are flagged for a quick human follow-up rather than logged as if everything went fine.',
+  },
+  {
+    q: 'Will this disrupt how our team currently works?',
+    a: 'No new software for your team to learn. The agent slots in behind the scenes — your team keeps using the same spreadsheet, schedule, or CRM they already check.',
+  },
+  {
+    q: 'Is our data and these phone calls handled responsibly?',
+    a: 'Yes. Call data and the information collected stay within your own systems — we don’t retain anything beyond what’s needed to do the job, and calls are handled with appropriate disclosure to the person on the line.',
+  },
+  {
+    q: 'Do we have to commit to a big rollout to try this?',
+    a: 'No. Engagements typically start with one specific type of call as a focused first project — not a company-wide rollout.',
   },
 ];
 ---
@@ -60,9 +90,9 @@ const steps = [
     </ul>
   </Section>
 
-  <!-- HOW IT WORKS -->
+  <!-- THE PROCESS -->
   <Section tone="white" aria-labelledby="how-title">
-    <p class="eyebrow">How it works</p>
+    <p class="eyebrow">The process</p>
     <h2 id="how-title" style="max-width: 20ch; margin-top: var(--space-5)">Three steps, one working session to start</h2>
     <div class="steps" style="margin-top: var(--space-8)">
       {
@@ -79,6 +109,10 @@ const steps = [
         ))
       }
     </div>
+
+    <p class="callout" style="margin-top: var(--space-8)">
+      You approve the agent before it ever makes a real call. No surprises on go-live.
+    </p>
   </Section>
 
   <!-- WHAT YOU GET -->
@@ -88,29 +122,58 @@ const steps = [
       A working agent, wired into your actual systems
     </h2>
     <div class="prose" style="margin-top: var(--space-6)">
-      <p>
-        Not a prototype, not a slide deck. A voice agent that makes real calls and keeps your systems
-        current on its own.
-      </p>
+      <p>Not a prototype, not a slide deck.</p>
     </div>
-    <div class="stats stats--2" style="margin-top: var(--space-8)">
-      <Stat
-        value="5"
-        unit="weeks"
-        label="From first conversation to live for our first homebuilding client."
-      />
-      <Stat
-        value="Real-time"
-        word
-        label="Every answer logged into your tools the moment the call ends."
-      />
+    <ul class="deliverables" style="margin-top: var(--space-7)">
+      <li>
+        <span>
+          <strong>A configured voice agent</strong> — built, tested, and tuned for your specific call
+          type before it goes live.
+        </span>
+      </li>
+      <li>
+        <span>
+          <strong>Full integration with your existing systems</strong> — the spreadsheet, CRM, or
+          scheduling tool you already use, no migration required.
+        </span>
+      </li>
+      <li>
+        <span>
+          <strong>Call recordings and transcripts</strong> — a complete record of every conversation
+          the agent has, always available to you.
+        </span>
+      </li>
+      <li>
+        <span>
+          <strong>Post-launch tuning</strong> — adjustments in the weeks after go-live as real calls
+          surface edge cases your process didn’t anticipate.
+        </span>
+      </li>
+    </ul>
+  </Section>
+
+  <!-- FAQ -->
+  <Section tone="white" aria-labelledby="faq-title">
+    <p class="eyebrow">Questions</p>
+    <h2 id="faq-title" style="max-width: 20ch; margin-top: var(--space-5)">
+      Questions operations teams ask
+    </h2>
+    <div class="faq" style="margin-top: var(--space-8)">
+      {
+        faqs.map((f) => (
+          <div class="faq__item">
+            <h3 class="faq__q">{f.q}</h3>
+            <p class="faq__a">{f.a}</p>
+          </div>
+        ))
+      }
     </div>
   </Section>
 
   <CtaBand
-    tone="white"
+    tone="tint"
     eyebrow="Get started"
     heading="Let’s map your first call."
-    text="Book a 20-minute call and tell me about the repetitive calls eating your team’s time. If it’s a fit, I’ll show you exactly how a voice agent would handle it."
+    text="Book a 20-minute call and tell us about the repetitive calls eating your team’s time. If it’s a fit, we’ll show you exactly how a voice agent would handle it."
   />
 </BaseLayout>
