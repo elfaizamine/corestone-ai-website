@@ -1,0 +1,25 @@
+<!--
+  Netlify Forms registration file.
+
+  Netlify detects forms by parsing static HTML at build time. Astro pages work,
+  but this dedicated file is the reliable way to register the form — it is the
+  approach Netlify documents for framework/SSG sites. Not linked or shown to
+  anyone; it exists only so the "contact" form and its fields are known to
+  Netlify. Keep the field names in sync with src/pages/contact.astro.
+-->
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Netlify form registration</title>
+  </head>
+  <body>
+    <form name="contact" data-netlify="true" data-netlify-honeypot="bot-field" hidden>
+      <input type="hidden" name="form-name" value="contact" />
+      <input name="bot-field" />
+      <input type="text" name="name" />
+      <input type="email" name="email" />
+      <input type="text" name="company" />
+      <textarea name="message"></textarea>
+    </form>
+  </body>
+</html>
